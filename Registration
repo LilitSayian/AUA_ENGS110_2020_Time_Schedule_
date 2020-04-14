@@ -12,10 +12,11 @@ user_information = {'name': name,
                     'surname': surname,
                     'birthMonth': birthMonth,
                     'birthDay': birthDay,
+                    'birthYear': birthYear,
                     'condition': condition
                     }
 
-json_dump = json.dumps(user_information)
+json_dump = json.dumps(user_information, indent=2)
 
 print(json_dump)
 
