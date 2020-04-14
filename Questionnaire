@@ -8,7 +8,7 @@ else:
 
 
 
-Question2 = input(" Does your child have difficulty walking? (yes/ no) ")
+Question2 = input("Does your child have difficulty walking? (yes/ no) ")
 if Question2 == "yes" :
    print('Register for a physiotherapy session')
 
