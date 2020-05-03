@@ -14,8 +14,6 @@ def chooseDay(used_days, available_days):
             if (user_day in available_days):
                 print("The day is confirmed.")
                 break
-        # if (user_day in not_available_days):
-        #     print(possible_days[str(user_day)])
 
 def decide_Time(possible_options,used_options,available_options) :
     for item in possible_options.keys():
