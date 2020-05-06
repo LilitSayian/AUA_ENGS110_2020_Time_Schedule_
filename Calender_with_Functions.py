@@ -51,7 +51,7 @@ def main():
             break
         except:
             print("That's not a valid option!")
-    # month = int(input("Enter month in numbers: "))
+            
     print(calendar.month(year, month))
 
     print("The Logopedic only works on Sundays and Saturdays from 10-4")
