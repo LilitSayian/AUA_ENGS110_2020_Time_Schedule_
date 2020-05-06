@@ -52,7 +52,6 @@ def main():
                 break
         except:
             print("That's not a valid option!")
-    # month = int(input("Enter month in numbers: "))
 
     print(calendar.month(year, month))
 
@@ -87,4 +86,3 @@ def main():
 
 
 main()
-
