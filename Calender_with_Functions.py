@@ -48,10 +48,12 @@ def main():
     while True:
         try:
             month = int(input("Enter month in numbers: "))
-            break
+            if 0 < month <= 12:
+                break
         except:
             print("That's not a valid option!")
-            
+    # month = int(input("Enter month in numbers: "))
+
     print(calendar.month(year, month))
 
     print("The Logopedic only works on Sundays and Saturdays from 10-4")
