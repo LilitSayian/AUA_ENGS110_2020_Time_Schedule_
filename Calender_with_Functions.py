@@ -1,11 +1,9 @@
 import calendar
 
-
 def decide_Day(possible_days, used_days, available_days):
     for item in possible_days.keys():
         if item not in used_days:
             available_days.append(item)
-
 
 def chooseDay(used_days, available_days):
     while True:
