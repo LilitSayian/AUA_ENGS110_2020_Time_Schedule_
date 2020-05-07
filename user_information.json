@@ -1,8 +1,28 @@
 {
-  "name": "ww",
-  "surname": "ss",
-  "birthMonth": 11,
-  "birthDay": 11,
-  "birthYear": 2000,
-  "condition": 1
+ "user_information": [
+  {
+   "name": "l",
+   "surname": "l",
+   "birthMonth": 1,
+   "birthDay": 1,
+   "birthYear": 2001,
+   "condition": 1
+  },
+  {
+   "name": "y",
+   "surname": "y",
+   "birthMonth": 2,
+   "birthDay": 2,
+   "birthYear": 2004,
+   "condition": 4
+  },
+  {
+   "name": "w",
+   "surname": "w",
+   "birthMonth": 3,
+   "birthDay": 3,
+   "birthYear": 2003,
+   "condition": 3
+  }
+ ]
 }
