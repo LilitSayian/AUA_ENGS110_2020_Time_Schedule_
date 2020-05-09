@@ -3,19 +3,14 @@ import json
 import os
 
 
-def data():
-    with open("read_user_info.json") as file_data:
-        info = json.load(file_data)
-        return info
-
-
 def openuserinformation(name, surname, birthMonth, birthDay, birthYear, condition):
     if not os.path.exists("user_information.json"):
         with open("user_information.json", "w+") as file:
             initial_dict = {
-                "users": []
+                "user_information": []
             }
-            json.dump(initial_dict, file, indent=True)
+            json.dump(initial_dict, file) #, indent=True
+
     with open("user_information.json", "r") as file:
         data_json = json.load(file)
     user_information = {'name': name,
@@ -33,7 +28,7 @@ def openuserinformation(name, surname, birthMonth, birthDay, birthYear, conditio
 
 def name():
     while True:
-        name = input(" Please Enter Name: ")
+        name = input("Please Enter Name: ")
         if not re.match("^[a-z]*$", name):
             print("Error! Only letters a-z allowed!")
         else:
@@ -42,7 +37,7 @@ def name():
 
 def surname():
     while True:
-        surname = input(" Please Enter Surname: ")
+        surname = input("Please Enter Surname: ")
         if not re.match("^[a-z]*$", surname):
             print("Error! Only letters a-z allowed!")
         else:
@@ -83,7 +78,7 @@ def birthYear():
 def condition():
     while True:
         try:
-            condition = input(" Please Enter the Condition from 1-5: ")
+            condition = input("Please Enter the Condition from 1-5: ")
             condition= int(condition)
             if 0 < condition <= 5:
                 return condition
@@ -91,33 +86,42 @@ def condition():
             print("That's not a valid option!")
 
 
-def answer_my_question():
-    while True:
-        Question = input("Do you want to know what health specialist we have? (yes/ no) ").lower()
-        if Question == "yes":
-            print(data())
-            break
-        else:
-            if Question == "no":
-                print("Thank you for registering.")
-                break
+def data():
+    # info = {}
+    with open("read_user_info.json") as file_data:
+        info = json.load(file_data)
+        return info
+
+
+def displayCurrentDicValue(currentValue, step=0):
+    if (type(currentValue) == list):
+        for item in currentValue:
+            displayCurrentDicValue(item, step+1)
+            print(", ", end="")
+        print("\n", end="")
+
+    elif (type(currentValue) == dict):
+        for key in currentValue:
+            print("\n", "\t"*step, key, ": ", end="")
+            displayCurrentDicValue(currentValue[key], step+1)
+
+    else:
+        print(currentValue, end="")
 
 
 def main():
-    data()
     user_name = name()
     user_surname = surname()
     birth_month = birthMonth()
     day = birthDay()
     year = birthYear()
     _condition = condition()
-    user_information = openuserinformation(user_name, user_surname, birth_month, day, year, _condition)
-    print(user_information)
-    print("Thank you for registering.")
-    answer_my_question()
-    print("Please answer the upcoming questions to make future appointments. Thank you.")
+    openuserinformation(user_name, user_surname, birth_month, day, year, _condition)
+    print("\nThank you for registering. Here is a list of our health specialists.")
+    data()
+    specialists_info = data()
+    displayCurrentDicValue(specialists_info)
+    print("\nPlease answer the upcoming questions to make future appointments. Thank you.")
 
 
 main()
-
-
