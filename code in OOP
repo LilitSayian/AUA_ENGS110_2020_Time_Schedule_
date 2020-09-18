@@ -1,0 +1,202 @@
+import re
+
+class Information:
+    def __init__(self,name, surname, birthMonth, birthDay, birthYear, condition,question):
+        self.name = name
+        self.surname = surname
+        self.birthMonth = birthMonth
+        self.birthDay = birthDay
+        self.birthYear = birthYear
+        self.condition = condition
+        self.question = question
+
+    def name():
+        while True:
+            name = input("Please Enter Name: ")
+            if not re.match("^[a-z]*$", name):
+                print("Error! Only letters a-z allowed!")
+            else:
+                return name
+    user_name = name()
+
+    def surname():
+        while True:
+            surname = input("Please Enter Surname: ")
+            if not re.match("^[a-z]*$", surname):
+                print("Error! Only letters a-z allowed!")
+            else:
+                return surname
+    user_surname = surname()
+
+    def birthDay():
+        while True:
+            try:
+                birthday = int(input("Enter your birth day :"))
+                if 0 < birthday <= 31:
+                    return birthday
+            except:
+                print("That's not a valid option!")
+    day = birthDay()
+
+    def birthMonth():
+        while True:
+            try:
+                birthMonth = int(input("Enter your birth month :"))
+                if 0 < birthMonth <= 12:
+                    return birthMonth
+            except:
+                print("That's not a valid option!")
+    birth_month = birthMonth()
+
+    def birthYear():
+        while True:
+            try:
+                birthYear = input("Enter the year you were born (4 digits):")
+                birthYear = int(birthYear)
+                if 1919 < int(birthYear) <= 2020:
+                    return birthYear
+            except:
+                print("That's not a valid option!")
+    year = birthYear()
+
+    def condition():
+        while True:
+            try:
+                condition = input("Please Enter the Condition from 1-5: ")
+                condition = int(condition)
+                if 0 < condition <= 5:
+                    return condition
+            except:
+                print("That's not a valid option!")
+    _condition = condition()
+
+    print("\n")
+    print("\nThank you for registering. Here is a list of our health specialists.")
+print("\n")
+
+
+class Specialists:
+
+    numofSpecialists = 0
+
+    def __init__(self,dr_name,dr_surname,dr_age,working_hours,working_days):
+        self.dr_name = dr_name
+        self.dr_surname = dr_surname
+        self.dr_age = dr_age
+        self.working_hours = working_hours
+        self.working_days = working_days
+
+        self.ID = Specialists.numofSpecialists + 1
+        Specialists.numofSpecialists = Specialists.numofSpecialists + 1
+
+    def get_dr_name(self):
+        return self.dr_name
+
+    def get_dr_surname(self):
+        return self.dr_surname
+
+    def get_dr_age(self):
+        return self.dr_age
+
+    def getWorking_hours(self):
+        return self.working_hours
+
+    def getWorking_days(self):
+        return self.working_days
+
+
+Doctor1 = Specialists("Anna", "Brown", "35", "1","1")
+Doctor2 = Specialists("Sally", "King", "29", "1","1")
+Doctor3 = Specialists("Bella", "Jack", "40", "1","1")
+
+# print("Property1 ID: ", Doctor1.ID)
+print("The Logopedic")
+print("The name: " + Doctor1.get_dr_name())
+print("The surname: " + Doctor1.get_dr_surname())
+print("The age: " + Doctor1.get_dr_age())
+print("Working Hours: " + Doctor1.getWorking_hours())
+print("Working Days: " + Doctor1.getWorking_days())
+
+print("\n")
+
+print(" The Therapist")
+print("The name: " + Doctor2.get_dr_name())
+print("The surname: " + Doctor2.get_dr_surname())
+print("The age: " + Doctor2.get_dr_age())
+print("Working Hours: " + Doctor2.getWorking_hours())
+print("Working Days: " + Doctor2.getWorking_days())
+
+print("\n")
+
+print("The Psychologist")
+print("The name: " + Doctor3.get_dr_name())
+print("The surname: " + Doctor3.get_dr_surname())
+print("The age: " + Doctor3.get_dr_age())
+print("Working Hours: " + Doctor3.getWorking_hours())
+print("Working Days: " + Doctor3.getWorking_days())
+
+print("\n" + "Total amount of Health Specialists are: ", Specialists.numofSpecialists)
+
+
+print("\n")
+
+
+class Schedueling:
+    def __init__(self,question):
+        self.question = question
+
+    def answer_question1():
+        while True:
+            Question1 = input("Does your child have difficulty talking? (yes/ no) ").lower()
+            if Question1 == "yes":
+                print('Register for a speech therapy session with the logopedic')
+                break
+            else:
+                if Question1 == "no":
+                    print('Do not register for a speech therapy session with the logopedic')
+                    break
+                    return answer_question1
+
+    question1 = answer_question1()
+
+    print("\n")
+
+    def answer_question2():
+        while True:
+            Question2 = input("Does your child have difficulty walking? (yes/ no) ").lower()
+            if Question2 == "yes":
+                print('Register for a physiotherapy session')
+                break
+            else:
+                if Question2 == "no":
+                    print('Do not register for a physiotherapy session')
+                    break
+                    return answer_question2
+
+    question2 = answer_question2()
+
+    print("\n")
+
+    def answer_question3():
+        while True:
+            Question3 = input("Does your child have developmental challenges? (yes/ no) ").lower()
+            if Question3 == "yes":
+                print('Register for a child psychology session')
+                break
+            else:
+                if Question3 == "no":
+                    print('Do not register for a child psychology session')
+                    break
+                    return answer_question3
+
+    question3 = answer_question3()
+
+    def addQuestion(self,question):
+        self.newquestions.append(question)
+
+    def printAllQuestions(self):
+        for q in self.newquestions:
+            q.displayProperties()
+
+print("\n")
+print('Thank you. Now your appointments can be done.')
