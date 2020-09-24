@@ -47,6 +47,7 @@ def bubbleSort(array):
 array = [1883,1850,1864]
 
 
+
 def main():
 
     print("Here are the book information:")
@@ -55,10 +56,10 @@ def main():
     displayCurrentDicValue(BookSort)
     print("\n")
 
-     # BubbleSort(array)
+    # BubbleSort(array)
 
     print("The Bubble Sorted Array is:")
-    # result = bubbleSort(array)
+    result = bubbleSort(array)
     # print(result)
     for i in range(len(array)):
         print("%d" % array[i])
