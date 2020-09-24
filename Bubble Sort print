@@ -1,0 +1,43 @@
+def bubbleSort(array):
+    initial_length = len(array)
+
+    for i in range(initial_length - 1):
+        start = 0
+
+        for j in range(initial_length - 1):
+
+            if array[j] > array[j + 1]:
+                number = array[j]
+                array[j] = array[j + 1]
+                array[j + 1] = number
+                start = 1
+
+        if start == 0:
+            break
+
+    return array
+
+
+Books = [{"Book1": {"name": "Treasure Island","author": "Robert Louis Stevenson", "publishing year": 1883}},
+{"Book2": {"name": "David Copperfield","author": "Charles Dickens", "publishing year": 1850}},
+{"Book3": {"name": "Journey To The Center of The Earth","author": "Jules Verne", "publishing year": 1864}}]
+
+array = [1883,1850,1864]
+
+
+def main():
+
+    # print("Here are the book information:")
+    # print(Books)
+    # print("\n")
+
+    # BubbleSort(array)
+
+    print("The Bubble Sorted Array is:")
+    result = bubbleSort(array)
+    # print(result)
+    for i in range(len(array)):
+        print("%d" % array[i])
+
+
+main()
