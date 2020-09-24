@@ -1,0 +1,51 @@
+import json
+
+def getBookData():
+    Book_Sort = {}
+    with open("Book_Sort.json") as file_data:
+        Book_Sort = json.load(file_data)
+    return Book_Sort
+
+
+def displayCurrentDicValue(currentValue, step=0):
+    if (type(currentValue) == list):
+        for item in currentValue:
+            displayCurrentDicValue(item, step+1)
+            print(", ", end="")
+        print("\n", end="")
+
+    elif (type(currentValue) == dict):
+        for key in currentValue:
+            print("\n", "\t"*step, key, ": ", end="")
+            displayCurrentDicValue(currentValue[key], step+1)
+
+    else:
+        print(currentValue, end="")
+
+
+def BubbleSort(array):
+    initial_length = len(array)
+
+    for i in range(initial_length-1):
+        for k in range(0,initial_length-1):
+            if array[k] > array[k+1]:
+                array[k], array[k+1] = array[k+1], array[k]
+
+
+array = [1883,1850,1864]
+
+def main():
+
+    print("Here are the book information:")
+
+    BookSort = getBookData()
+    displayCurrentDicValue(BookSort)
+    print("\n")
+    BubbleSort(array)
+
+    print("The Bubble Sorted Array is:")
+    for i in range(len(array)):
+        print("%d" % array[i])
+
+
+main()
