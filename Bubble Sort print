@@ -39,13 +39,28 @@ def main():
 
         }]
 
-    result = bubbleSort(Books)
-    print(result)
-    # for i in range(len(Books)):
-    #     print("%d" % Books[i])
+    bubbleSort(Books)
 
-    # bubbleSort(Books)
+    print("Here are the book information:")
 
-    print("Here are the book information with Bubble Sorted Array:")
+    def pretty_print(current, step=0):
+
+        if (type(current) == list):
+            for item in current:
+                pretty_print(item, step + 1)
+                print(", ", end="")
+            print("\n", end="")
+
+        elif (type(current) == dict):
+            for key in current:
+                print("\n", "\t" * step, key, ": ", end="")
+                pretty_print(current[key], step + 1)
+
+        else:
+            print(current, "", end="")
+
+    for obj in Books:
+        pretty_print(obj)
+
 
 main()
