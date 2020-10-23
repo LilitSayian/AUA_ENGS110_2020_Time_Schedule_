@@ -172,6 +172,89 @@ class LinkedList():
         while self.headval.next is not None:
             self.headval = self.headval.next
         print(f"Last Node is: {self.headval.data}")
+# excercise 4
+
+class DoubleLinkedList:
+    def __init__(self):
+        self.headval = None
+
+    def addFirst(self, NewVal):
+        NewNode = Node(NewVal)
+        NewNode.next = self.headval
+        if self.headval is not None:
+            self.headval.prev = NewNode
+        self.headval = NewNode
+
+    def addLast(self, NewVal):
+        NewNode = Node(NewVal)
+        NewNode.next = None
+        if self.headval is None:
+            NewNode.prev = None
+            self.headval = NewNode
+            return
+        last = self.headval
+        while (last.next is not None):
+            last = last.next
+        last.next = NewNode
+        NewNode.prev = last
+        return
+
+    def insertBefore(self, prev_node, NewVal):
+        if prev_node is None:
+            return
+        NewNode = Node(NewVal)
+        NewNode.next = prev_node.next
+        prev_node.next = NewNode
+        NewNode.prev = prev_node
+        if NewNode.next is not None:
+            NewNode.next.prev = NewNode
+
+    def removeFirst(self):
+        if self.headval is None:
+            print("The list has no element to delete")
+            return
+        if self.headval.next is None:
+            self.headval = None
+            return
+        self.headval = self.headval.next
+        self.headval.prev = None
+
+    def removeLast(self):
+        if self.headval is None:
+            print("The list has no element to delete")
+            return
+        if self.headval.next is None:
+            self.headval = None
+            return
+        while self.headval.next is not None:
+            self.headval = self.headval.next
+        self.headval.prev.next = None
+
+    def first(self):
+        print(f"First Node is: {self.headval.data}")
+
+    def last(self):
+        while self.headval.next is not None:
+            self.headval = self.headval.next
+        print(f"Last Node is: {self.headval.data}")
+
+    def dLinkedListPrint(self):
+        while (self.headval is not None):
+            print(self.headval.data),
+            self.headval = self.headval.next
+
+    def get_evens_and_odds_from_linked_lists(linked_list):
+        i = linked_list.header
+        while i.data is not None:
+            evens = []
+            odds = []
+            if i.data % 2 == 0:
+                evens.append(i.data)
+            else:
+                odds.append(i.data)
+            i = i.get_next()
+        
+
 
 def main():
 
