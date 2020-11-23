@@ -43,7 +43,7 @@ class Stack:
     def display(self):
         _node = self.head
         if self.isempty():
-            print("Stack Underflow")
+            print("The stack is empty")
         else:
             while (_node != None):
                 print(_node.data, ",", end=" ")
