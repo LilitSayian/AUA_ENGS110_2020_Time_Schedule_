@@ -102,7 +102,7 @@ class Single_Linked_List(ListADT):
             self._size -= 1
             return
         tmp = self._first
-        # Iterate over the linked list to get a reference of the pre-last element
+        
         while tmp.next != self._last:
             tmp = tmp.next
 
