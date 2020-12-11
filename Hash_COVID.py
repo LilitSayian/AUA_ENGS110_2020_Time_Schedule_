@@ -116,11 +116,11 @@ class HashMap():
 #                        "birthDay":"3",
 #                        "birthYear":"1988",
 #                        "condition":"3"})
-# Symtomps.put("COVID-19 negative", {"Healed": "yes"})
-#
+
+
 # r = "Kate"
 # Symtomps.remove(r)
-# h = Symtomps.hasKey("Bella")
+# h = Symtomps.hasKey("Kate")
 # n="COVID-19 negative"
 # p="Still COVID-19 positive:"
 # print(n)

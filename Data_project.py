@@ -2,6 +2,7 @@ import calendar
 import re
 import json
 import os
+from Queue_Patient import Node, Queue
 from Hash_COVID import *
 from Specialists_SLinkedList import SLinkedList, Node
 
@@ -10,6 +11,7 @@ class Covid:
     Symptoms_filename = "Symptoms.json"
     User_info = "user_information"
     Specialists = "Specialists_SLinkedList.py"
+
 
 def openuserinformation(name, surname, birthMonth, birthDay, birthYear, condition):
     if not os.path.exists("user_information.json"):
@@ -84,8 +86,6 @@ def birthYear():
 
 
 def condition():
-    #write a code for this
-    # print("Symptoms.json")
     while True:
         try:
             condition = input("Please Enter the Condition from 0-5: ")
@@ -122,14 +122,14 @@ def main():
     year = 2020
     while True:
         try:
-            month = int(input("Enter month in numbers: "))
+            month = int(input("Enter month in numbers to see the calendar: "))
             if 0 < month <= 12:
                 break
         except:
             print("That's not a valid option!")
 
     print(calendar.month(year, month))
-    print("\n")
+    # print("\n")
 
     user_name = name()
     user_surname = surname()
@@ -139,13 +139,13 @@ def main():
     _condition = condition()
     openuserinformation(user_name, user_surname, birth_month, day, year, _condition)
     print("\n")
-    print("Here are some of the COVID-19 symptoms")
+    print("\nThank you for registering.Here are some of the COVID-19 symptoms")
     data()
     specialists_info = data()
     displayCurrentDicValue(specialists_info)
 
     llist = SLinkedList()
-    print("\nThank you for registering. Here is a list of our health specialists:-")
+    print("\nHere is a list of our health specialists:-")
     llist.headval = Node("General-Doctor")
     e2 = Node("Psychotherapist")
     e3 = Node("General Doctor")
@@ -187,7 +187,6 @@ def main():
                            "birthDay":"3",
                            "birthYear":"1988",
                            "condition":"3"})
-    Symtomps.put("COVID-19 negative", {"Healed": "yes"})
 
     r = "Kate"
     Symtomps.remove(r)
@@ -200,6 +199,19 @@ def main():
     print(p)
     for elem in Symtomps:
         print(elem.get("fullName"))
+
+    print("\n")
+    q = Queue()
+    q.EnQueue("Bella")
+    q.EnQueue("Kate")
+    q.DeQueue()
+    q.DeQueue()
+    q.EnQueue("Sam")
+    q.EnQueue("Tim")
+    q.EnQueue("Lilly")
+    q.DeQueue()
+    print("Queue Front: " + str(q.front.data))
+    print("Queue Rear: " + str(q.rear.data))
 
 
 main()
